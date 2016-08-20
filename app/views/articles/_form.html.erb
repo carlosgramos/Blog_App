@@ -1,0 +1,38 @@
+<!-- form for article instance -->
+<%= form_for @article do |f|  %>
+<!-- using the errors.any? method on @article -->
+
+  <% if @article.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <!-- using pluralize in case of multiple errors -->
+        <%= pluralize(@article.errors.count, "error") %> prohibited this article from being saved:
+      </h2>
+      <ul>
+        <!-- for each error in @article, show the full message -->
+        <% @article.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <!-- input fields -->
+  <p>
+    <%= f.label :title %><br>
+    <%= f.text_area :text %>
+  </p>
+
+  <p>
+    <%= f.label :text %><br>
+    <%= f.text_area :text %>
+  </p>
+
+  <p>
+    <%= f.submit  %>
+  </p>
+<% end %>
+
+<!-- The reason we can use this form_for declaration to stand in for either of the other forms is because
+@article is a resource corresponding to a full set of RESTful routes. and Rails can infer which URI (a string of characters used to identify a resource)
+and method to use. -->

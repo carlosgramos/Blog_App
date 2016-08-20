@@ -1,0 +1,13 @@
+<h1>Editing Article</h1>
+
+<!-- The form syntax is: for an article object, the path where the object will be sent, and the PATCH HTTP method -->
+<!-- this form is pointed to the article#update action (articles_controller.rb) -->
+
+<!-- The first parameter of form_for can be an object, say, @article which would cause the helper to fill in
+the form with the fields of the object. Passing in a symbol (:article)
+with the same name as the instance variable (@article) also automagically leads to the same behavior. -->
+
+<%= render 'form' %>
+
+<!-- navigation link to articles  -->
+<%= link_to 'Back', articles_path %>

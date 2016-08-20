@@ -1,0 +1,30 @@
+<h1>Listing articles</h1>
+
+<%= link_to 'New article', new_article_path %>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Text</th>
+  </tr>
+
+  <!-- After creating the article#update action in the controller
+  we want to show a link to the edit action in the list of all the articles,
+  next to the "Show" link: -->
+  <% @articles.each do |article| %>
+    <tr>
+      <td><%= article.title %></td>
+      <td><%= article.text %></td>
+      <td><%= link_to 'Show', article_path(article) %></td>
+      <td><%= link_to 'Edit', edit_article_path(article) %></td>
+      <td><%= link_to 'Destroy', article_path(article),
+              method: :delete,
+              data: {confirm: 'Are you sure'} %>
+      </td>
+      <!-- Above, we use link_to in a different way, passing the named route as the second argument,
+      then the options as another argument. The method: :delete, and data:{} are HTML5 attributes. Rails will
+      show a confirm dialog to the user, made possible by the jquery_ujs (Unobtrusive adapter) file, which is part of the
+      application.html.erb. -->
+    </tr>
+  <% end %>
+</table>

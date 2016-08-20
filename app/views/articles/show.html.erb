@@ -1,0 +1,46 @@
+<p>
+  <strong>Title:</strong>
+  <%= @article.title %>
+</p>
+
+<p>
+  <strong>Text:</strong>
+  <%= @article.text %>
+</p>
+
+<h2>Comments</h2>
+<% @article.comments.each do |comment|  %>
+  <p>
+    <strong>Commenter:</strong>
+    <%= comment.commenter  %>
+  </p>
+
+  <p>
+    <strong>Comment:</strong>
+    <%= comment.body  %>
+  </p>
+<% end %>
+
+<!-- Add a comment -->
+<h2>Add a comment:</h2>
+<!-- The form_for here uses an array, which will build a nested route: articles/1/comments -->
+<%= form_for([@article, @article.comments.build]) do |f|  %>
+  <p>
+    <%= f.label :commenter  %><br>
+    <%= f.text_field :commenter  %>
+  </p>
+  <p>
+    <%= f.label :body  %><br>
+    <%= f.text_area :body  %>
+  </p>
+  <p>
+    <%= f.submit  %>
+  </p>
+<% end %>
+
+<%= link_to 'Edit', edit_article_path(@article) %> |
+<%= link_to 'Back', articles_path %>
+<!-- A link like the one above can point to a different controller or view. To point to a controller:
+link_to "Label", :controller => :my_controller, :action => :index -->
+<!-- This link takes you back to the articles list  -->
+<!-- <%= render plain: @article.title %> erb can be used to render plain views to the screen. Good for t-shooting-->
