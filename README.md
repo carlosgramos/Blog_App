@@ -1,28 +1,17 @@
-# README
+# Blog App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is the blog app from the classic "Getting Started With Rails" tutorial. I'm trying to get better at Rails.
 
-Things you may want to cover:
+It covers the following essential Rails topics:
 
-* Ruby version
+* Routing and nested resources
 
-* System dependencies
+* Model generation
 
-* Configuration
+* Controller Generation
 
-* Database creation
+* Active Record Migration
 
-* Database initialization
+* Form partials
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-* Jul 26 - You are in section: 5-11 'Updating articles'
-* Jul 27 - You are in section: 5-12 'Using partials'
-* Aug 20 - You are in seciton: 7 Refactoring
+* etc.
