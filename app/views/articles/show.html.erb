@@ -8,35 +8,16 @@
   <%= @article.text %>
 </p>
 
+<!-- Render partial once for each comment that is in the
+@article.comments collection.   -->
 <h2>Comments</h2>
-<% @article.comments.each do |comment|  %>
-  <p>
-    <strong>Commenter:</strong>
-    <%= comment.commenter  %>
-  </p>
-
-  <p>
-    <strong>Comment:</strong>
-    <%= comment.body  %>
-  </p>
-<% end %>
+<%= render @article.comments  %>
 
 <!-- Add a comment -->
 <h2>Add a comment:</h2>
-<!-- The form_for here uses an array, which will build a nested route: articles/1/comments -->
-<%= form_for([@article, @article.comments.build]) do |f|  %>
-  <p>
-    <%= f.label :commenter  %><br>
-    <%= f.text_field :commenter  %>
-  </p>
-  <p>
-    <%= f.label :body  %><br>
-    <%= f.text_area :body  %>
-  </p>
-  <p>
-    <%= f.submit  %>
-  </p>
-<% end %>
+<!-- The second render just defines a partial template we want to
+render, in this case 'comments/form' -->
+<%= render 'comments/form'  %>
 
 <%= link_to 'Edit', edit_article_path(@article) %> |
 <%= link_to 'Back', articles_path %>
